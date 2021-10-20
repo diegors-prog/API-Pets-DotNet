@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace PetsApi.Models
 {
   public class User

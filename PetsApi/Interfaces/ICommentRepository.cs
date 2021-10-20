@@ -8,7 +8,7 @@ namespace PetsApi.Interfaces
     Comment GetById(int id);
     List<Comment> GetAll();
     void Save(Comment comment);
-    void Delete(int id);
+    void Delete(Comment comment);
     void Update(Comment comment);
   }
 }

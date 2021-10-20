@@ -31,9 +31,9 @@ namespace PetsApi.Models
       context.SaveChanges();
     }
 
-    public void Delete(int id)
+    public void Delete(Comment comment)
     {
-      context.Comments.Remove(GetById(id));
+      context.Comments.Remove(comment);
       context.SaveChanges();
     }
 

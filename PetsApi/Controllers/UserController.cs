@@ -24,12 +24,17 @@ namespace PetsApi.Controllers
 
     public IActionResult GetList()
     {
-      var listUsers = users.GetAll().Select(x => new { Id = x.Id, Username = x.Username, Email = x.Email, Name = x.Name }).ToList();
-
-      if (listUsers.Count == 0)
+      var listUsers = users.GetAll().Select(x => new
       {
-        return NotFound();
-      }
+        Id = x.Id,
+        Username = x.Username,
+        Email = x.Email,
+        Image = x.Image,
+        Name = x.Name
+      })
+          .ToList();
+
+      if (listUsers.Count == 0) return NotFound();
 
       return Ok(listUsers);
     }
@@ -39,41 +44,36 @@ namespace PetsApi.Controllers
     {
       var user = users.GetById(id);
 
-      if (user == null)
-      {
-        return NotFound();
-      }
+      if (user == null) return NotFound();
 
       return Ok(new
       {
         Id = user.Id,
         Username = user.Username,
         Email = user.Email,
+        Image = user.Image,
         Name = user.Name,
       });
     }
 
     [HttpPost("userCreate")]
-    public IActionResult Post([FromBody] UserCreateModel user)
+    public IActionResult Post([FromBody] UserCreateModel model)
     {
-      if (!ModelState.IsValid)
-      {
-        return BadRequest();
-      }
+      if (!ModelState.IsValid) return BadRequest();
 
-      var userNew = new User
+      var newUser = new User
       {
-        Username = user.Username,
-        Email = user.Email,
-        Password = user.Password,
+        Username = model.Username,
+        Email = model.Email,
+        Password = model.Password,
         Image = null,
         Name = null
       };
 
       try
       {
-        users.Save(userNew);
-        return Ok(user);
+        users.Save(newUser);
+        return Ok(model);
       }
       catch (Exception e)
       {
@@ -85,17 +85,11 @@ namespace PetsApi.Controllers
     public IActionResult Put([FromBody] UserProfileModel model, [FromRoute] int id)
     {
 
-      if (!ModelState.IsValid)
-      {
-        return BadRequest();
-      }
+      if (!ModelState.IsValid) return BadRequest();
 
       var user = users.GetById(id);
 
-      if (user == null)
-      {
-        return NotFound();
-      }
+      if (user == null) return NotFound();
 
       try
       {
@@ -111,7 +105,7 @@ namespace PetsApi.Controllers
       }
     }
 
-    [HttpDelete("user/{Id}")]
+    [HttpDelete("user/{id}")]
     public IActionResult Delete([FromRoute] int id)
     {
       var user = users.GetAll().Find(x => x.Id == id);
@@ -127,9 +121,10 @@ namespace PetsApi.Controllers
         return Ok(new
         {
           message = "Usuário deletado com sucesso!",
+          id = id
         });
       }
-      catch (Exception)
+      catch (Exception e)
       {
         return BadRequest();
       }

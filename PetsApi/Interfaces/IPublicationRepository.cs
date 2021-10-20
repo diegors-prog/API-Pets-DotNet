@@ -8,7 +8,7 @@ namespace PetsApi.Interfaces
     Publication GetById(int id);
     List<Publication> GetAll();
     void Save(Publication publication);
-    void Delete(int id);
+    void Delete(Publication publication);
     void Update(Publication publication);
   }
 }
