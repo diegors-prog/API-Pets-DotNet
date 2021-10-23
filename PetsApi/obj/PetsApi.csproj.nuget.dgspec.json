@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cliente Farol\\Documents\\Repositórios locais\\Ulbra\\API-Pets-DotNet\\PetsApi\\PetsApi.csproj": {}
+    "/home/arthur/Área de Trabalho/API-Pets-DotNet/PetsApi/PetsApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cliente Farol\\Documents\\Repositórios locais\\Ulbra\\API-Pets-DotNet\\PetsApi\\PetsApi.csproj": {
+    "/home/arthur/Área de Trabalho/API-Pets-DotNet/PetsApi/PetsApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cliente Farol\\Documents\\Repositórios locais\\Ulbra\\API-Pets-DotNet\\PetsApi\\PetsApi.csproj",
+        "projectUniqueName": "/home/arthur/Área de Trabalho/API-Pets-DotNet/PetsApi/PetsApi.csproj",
         "projectName": "PetsApi",
-        "projectPath": "C:\\Users\\Cliente Farol\\Documents\\Repositórios locais\\Ulbra\\API-Pets-DotNet\\PetsApi\\PetsApi.csproj",
-        "packagesPath": "C:\\Users\\Cliente Farol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cliente Farol\\Documents\\Repositórios locais\\Ulbra\\API-Pets-DotNet\\PetsApi\\obj\\",
+        "projectPath": "/home/arthur/Área de Trabalho/API-Pets-DotNet/PetsApi/PetsApi.csproj",
+        "packagesPath": "/home/arthur/.nuget/packages/",
+        "outputPath": "/home/arthur/Área de Trabalho/API-Pets-DotNet/PetsApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Cliente Farol\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/arthur/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -38,6 +38,18 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -71,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
         }
       }
     }
